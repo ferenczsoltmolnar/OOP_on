@@ -11,12 +11,17 @@ import javax.print.attribute.standard.Finishings;
 public class Proba3 {
 
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) /*throws IOException*/ {
 		int n = 5;
 		int[] tomb = new int[n];
 		//Scanner sc = new Scanner(System.in);
 		//sc.close();
 		for (int i = 0; i < tomb.length; i++) {
+			try {
+				
+			
+			
+			
 			InputStreamReader bemenet = new InputStreamReader(System.in);
 			BufferedReader sc = new BufferedReader(bemenet);
 			
@@ -35,6 +40,10 @@ public class Proba3 {
 					System.out.println("rossz input");
 				}  
 			} while (rosszAdat);
+			
+			} catch (IOException e) {
+				// TODO: handle exception
+			}
 		
 		}
 		System.out.println("A tomb elemei:");
