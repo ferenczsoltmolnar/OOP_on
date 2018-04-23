@@ -17,27 +17,7 @@ public class Proba4 {
 		//Scanner sc = new Scanner(System.in);
 		//sc.close();
 		for (int i = 0; i < tomb.length; i++) {
-			try {
-			//InputStreamReader bemenet = new InputStreamReader(System.in);
-			//BufferedReader sc = new BufferedReader(bemenet);
-			BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
-			boolean rosszAdat = true;
-			do {
-				System.out.println("Kerem adja meg az " + (i + 1) + " egesz szamot");
-				System.out.println("szam:");
-				try {
-					tomb[i] = Integer.valueOf(sc.readLine()).intValue();
-					rosszAdat = false;
-				} catch (InputMismatchException e) {
-					System.out.println("rossz input");
-				}catch (NumberFormatException e) {
-					System.out.println("rossz input");
-				}  
-			} while (rosszAdat);
-			
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			tomb[i] = egeszetBeolvas(i + 1);
 		
 		}
 		System.out.println("A tomb elemei:");
@@ -45,5 +25,43 @@ public class Proba4 {
 			System.out.println(i);
 		}
 	}
-
+	
+	public static int egeszetBeolvas(int i) {
+		int egeszSzam = 0;
+		
+		try {
+			//InputStreamReader bemenet = new InputStreamReader(System.in);
+			//BufferedReader sc = new BufferedReader(bemenet);
+			BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
+			
+			boolean rosszAdat = true;
+			do {
+				System.out.println("Kerem adja meg az " + i + " egesz szamot");
+				System.out.println("szam:");
+				try {
+					egeszSzam = Integer.parseInt(sc.readLine());
+					if (egeszSzam <= 0) {
+						//throw new IllegalArgumentException();
+						throw new NemPozitivSzamException("nem pozitiv szám");
+					}
+					rosszAdat = false;
+				} catch (InputMismatchException e) {
+					System.out.println("rossz input");
+				}catch (NumberFormatException e) {
+					System.out.println("rossz input");
+				} catch (IllegalArgumentException e) {
+				System.out.println("0 vagy nem negativ egesz szam");}
+				catch (NemPozitivSzamException e) {
+					System.out.println(e.getMessage());}
+		
+			} while (rosszAdat);
+			
+			}catch (IOException e) {
+				e.printStackTrace();
+			 }
+			 
+		
+		return egeszSzam;
+		
 }
+}	
