@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import javax.print.attribute.standard.Finishings;
 
-public class Proba3 {
+public class Proba4 {
 
 	
 	public static void main(String[] args) /*throws IOException*/ {
