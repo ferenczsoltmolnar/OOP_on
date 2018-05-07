@@ -24,9 +24,7 @@ public class Futtathato {
 			
 			do {
 				try {
-					alkalmazottak[i] = new Alkalmazott("XY" + (i + 1),
-							//18 + veletlenszam.nextInt(Alkalmazott.getNyugdijkorhatar() - 18 + 1));
-							18 + veletlenszam.nextInt(Alkalmazott.getNyugdijkorhatar() - 17));
+					alkalmazottak[i] = new Alkalmazott("XY" + (i + 1), 18 + veletlenszam.nextInt(Alkalmazott.getNyugdijkorhatar() - 17));
 					rosszAlkalmazott = false;
 				} catch (IllegalArgumentException e) {
 					System.out.println(e);
