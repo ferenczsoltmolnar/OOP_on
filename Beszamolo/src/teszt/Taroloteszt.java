@@ -18,7 +18,7 @@ static String lyon;
 		Merevlemez merevlemezek[] = new Merevlemez[meret];
 		
 		
-		for (int i = 0;i<5; i++ ){
+		for (int i = 0;i<merevlemezek.lenght; i++ ){
 			
 			merevlemezek[i] = new Merevlemez("XY" + (i + 1), i * 1000 );
 		
