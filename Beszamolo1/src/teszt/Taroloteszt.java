@@ -89,8 +89,8 @@ static String lyon;
 			int y = 0;
 			for (Merevlemez merevlemez : merevlemezek) {
 		
-			if (merevlemez.szabadTerulet()>merevlemez.getFoglaltTerulet()) {
-				y++;
+				if (merevlemez.szabadTerulet()>merevlemez.getFoglaltTerulet()) {
+					y++;
 			}
 			
 		}

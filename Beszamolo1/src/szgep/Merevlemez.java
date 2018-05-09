@@ -27,7 +27,6 @@ public  class Merevlemez extends Adathordozo{
 	@Override
 	public String toString() {
 		return "Merevlemez [foglaltTerulet=" + foglaltTerulet
-				+ ", getFoglaltTerulet()=" + getFoglaltTerulet()
 				+ ", szabadTerulet()=" + szabadTerulet() + ", getType()="
 				+ getType() + ", getCapacity()=" + getCapacity() + "]";
 	}
