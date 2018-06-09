@@ -8,7 +8,7 @@ public class KigyoFuttathato extends JFrame {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 5;
+	private static final long serialVersionUID = 1;
 
 
 
