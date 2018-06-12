@@ -17,7 +17,8 @@ public class Game extends Canvas implements Runnable {
 	private Random r;
 	private Handler handler;
 	private HUD hud;
-
+	private Spawn spawner;
+	
 	public Game(){
 		handler = new Handler();
 		
@@ -26,28 +27,20 @@ public class Game extends Canvas implements Runnable {
 		new Window(WIDTH, HEIGHT, "Let's build a game", this);
 		
 		hud = new HUD();
+		spawner = new Spawn(handler, hud);
 		r = new Random();
 		
-		//for (int i = 0; i < 50; i++) {
-		
-			handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player, handler));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
-			
-			
-			
-			//}
 		
 		
+		handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player, handler));
 	}
+	
 	public synchronized void start(){
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
+	 
 	public synchronized void stop(){
 		try {
 			thread.join();
@@ -89,6 +82,7 @@ public class Game extends Canvas implements Runnable {
 	private void tick(){
 		handler.tick();
 		hud.tick();
+		spawner.tick();
 	}
 	
 	private void render(){
@@ -113,7 +107,7 @@ public class Game extends Canvas implements Runnable {
 		
 	}
 	
-	public static int clamp(int var, int min, int max){
+	public static float clamp(float var, float min, float max){
 		if(var >= max)
 			return var = max;
 		else if(var <= min)
@@ -123,7 +117,11 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	
+	
+	
 	public static void main(String args[]) {
-	 new Game();
+	 
+		//if(HUD.HEALTH == 0)
+			new Game();
 	}
 }
